@@ -22,6 +22,8 @@ const getAll = () => {
 //   return db.remove();
 // };
 
-export default {
+const ListingService = {
     getAll,
-};
+}
+
+export default ListingService;

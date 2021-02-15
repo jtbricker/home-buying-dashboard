@@ -38,8 +38,12 @@
 }
 
 .list-group {
-  max-height: 500px;
+  max-height: 80vh;
   margin-bottom: 10px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.unviewed-listing {
+  background-color: #ffffab;
 }

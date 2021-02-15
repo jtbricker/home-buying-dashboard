@@ -6,13 +6,17 @@ const getAll = () => {
     return db;
 };
 
+const getSingle = (key) => {
+    return db.child(key);
+};
+
 // const create = (data) => {
 //   return db.push(data);
 // };
 
-// const update = (key, data) => {
-//   return db.child(key).update(data);
-// };
+const update = (key, data) => {
+    return db.child(key).update(data);
+};
 
 // const remove = (key) => {
 //   return db.child(key).remove();
@@ -24,6 +28,8 @@ const getAll = () => {
 
 const ListingService = {
     getAll,
+    getSingle,
+    update,
 }
 
 export default ListingService;

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ListingService from "../services/ListingService";
 import ListingPreview from "./ListingPreview";
+import { FiEye } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
+import Listing from "./Listing";
 
 export default function Listings() {
     const [listings, setListings] = useState([]);
@@ -26,12 +29,25 @@ export default function Listings() {
         };
     }, []);
 
+    function markListingAsViewed(key) {
+        ListingService.update(key, { 'viewed': true });
+    }
+
+    function markAllUnviewed() {
+        listings.forEach(listing => {
+            ListingService.update(listing.mls_number, { 'viewed': false })
+        })
+    }
 
     const setActiveListing = (listing, index) => {
         setCurrentListing(listing);
 
+        markListingAsViewed(listing.mls_number);
+
         setCurrentIndex(index);
     };
+
+    const history = useHistory();
 
     return (
         <div className="list row">
@@ -42,15 +58,17 @@ export default function Listings() {
                     {listings.map((listing, index) => (
                         <li
                             className={
-                                "list-group-item " + (index === currentIndex ? "active" : "")
+                                "list-group-item " + (index === currentIndex ? "active " : "") + (listing.viewed ? "" : "unviewed-listing ")
                             }
                             onClick={() => setActiveListing(listing, index)}
+                            onDoubleClick={() => history.push('/listing/' + listing.mls_number)}
                             key={index}
                         >
-                            {listing.address}
+                            {listing.address}{listing.viewed && <FiEye style={{ 'float': "right" }} />}
                         </li>
                     ))}
                 </ul>
+                <button onClick={markAllUnviewed}>Mark all as unviewed</button>
             </div>
             <div className="col-md-6">
                 {currentListing ? (

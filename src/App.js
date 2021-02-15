@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import Listings from "./components/Listings";
+import Listing from "./components/Listing";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <h2>House Search Dashboard</h2>
         <Switch>
           <Route exact path={["/", "/listings"]} component={Listings} />
+          <Route path="/listing/:listingId"> <Listing /> </Route>
         </Switch>
       </div>
     </div>

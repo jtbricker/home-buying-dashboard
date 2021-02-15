@@ -72,3 +72,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Useful Resource for this project
 
 * <https://bezkoder.com/react-firebase-hooks-crud/>
+
+* <https://dev.to/andersjr1984/firebase-functions-react-users-need-to-stop-storing-sensitive-api-keys-in-env-files-d35>
+* <https://www.youtube.com/watch?v=NcewaPfFR6Y>

@@ -3,7 +3,6 @@ import ListingService from "../services/ListingService";
 import ListingPreview from "./ListingPreview";
 import { FiEye } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
-import Listing from "./Listing";
 
 export default function Listings() {
     const [listings, setListings] = useState([]);

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ListingService from "../services/ListingService";
 import ListingPreview from "./ListingPreview";
 import { FiEye } from "react-icons/fi";
+import { AiFillHeart } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 
 export default function Listings() {
@@ -63,7 +64,7 @@ export default function Listings() {
                             onDoubleClick={() => history.push('/listing/' + listing.mls_number)}
                             key={index}
                         >
-                            {listing.address}{listing.viewed && <FiEye style={{ 'float': "right" }} />}
+                            {listing.favorited && <AiFillHeart style={{ 'margin-right': "10px" }} color="red" />}<span style={{'textDecorationLine': (listing.archived ? "line-through" : "none")}}>{listing.address}</span>{listing.viewed && <FiEye style={{ 'float': "right" }} />}
                         </li>
                     ))}
                 </ul>

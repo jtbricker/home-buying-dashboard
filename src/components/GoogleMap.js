@@ -8,11 +8,11 @@ export default function GoogleMap(props) {
             width="600"
             height="450"
             title="Google Map"
-            frameborder="0"
+            frameBorder="0"
             style={{ 'border': 0 }}
-            allowfullscreen=""
+            allowFullScreen=""
             aria-hidden="false"
-            tabindex="0">
+            tabIndex="0">
         </iframe>
     )
 }
